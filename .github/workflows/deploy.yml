@@ -24,6 +24,9 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Create CNAME file
+        run: echo 'ithacasocialcircle.com' > ./dist/CNAME
+
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
         with:
@@ -48,6 +51,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-
-      - name: Create CNAME file
-        run: echo 'ithacasocialcircle.com' > ./dist/CNAME
