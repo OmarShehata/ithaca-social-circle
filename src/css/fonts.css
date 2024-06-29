@@ -1,25 +1,12 @@
 /* 
-  Snowball by Geronimo Font Studios
-    https://www.dafont.com/snowball.font
+By Hanken Design Co.
+https://www.1001fonts.com/glacial-indifference-font.html
 */
 @font-face {
-  font-family: Snowball;
-  src: url("/fonts/snowball/Snowball.ttf");
-}
-
-/* 
-Quicksand à by Andrew Paglinawan 
-    https://www.dafont.com/quicksand.font
-*/
-@font-face {
-  font-family: Quicksand-light;
-  src: url("/fonts/quicksand/Quicksand_Light.otf");
+  font-family: Glacial-light;
+  src: url("/fonts/glacial-indifference/glacial-indifference.regular.otf");
 }
 @font-face {
-  font-family: Quicksand-bold;
-  src: url("/fonts/quicksand/Quicksand_Bold.otf");
-}
-@font-face {
-  font-family: Quicksand-dash;
-  src: url("/fonts/quicksand/Quicksand_Dash.otf");
+  font-family: Glacial-bold;
+  src: url("/fonts/glacial-indifference/glacial-indifference.bold.otf");
 }
