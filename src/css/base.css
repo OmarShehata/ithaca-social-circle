@@ -48,4 +48,27 @@ html {
     radial-gradient(50% 50%,var(--_g)) calc(var(--s)/2) calc(var(--s)/2)
     var(--c1);
   background-size: var(--s) var(--s);
+  padding:0px;
+}
+
+body {
+  background-image: linear-gradient(
+    #fff7ee, 0%,
+   #fff7ee, 25%,
+   rgba(255, 255, 255, 0), 50%, 
+   rgba(255, 255, 255, 0));
+  margin: 0px;
+  padding: 0px;
+}
+
+.section-title {
+  color:#5b5248
+}
+
+#content {
+  padding: 15px;
+}
+
+.placeholder {
+  color: rgba(0, 0, 0, 0.5)
 }
