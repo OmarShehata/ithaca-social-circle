@@ -60,3 +60,7 @@
   text-align: center;
 }
 
+#emoji-rain {
+  position: fixed;
+  z-index: 10;
+}
