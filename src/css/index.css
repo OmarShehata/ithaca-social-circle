@@ -10,7 +10,6 @@
 #formerly-text {
  font-size: 16px; 
  margin-top: 0px;
- color: #white;
 }
 
 #title-h1 {
@@ -63,4 +62,11 @@
 #emoji-rain {
   position: fixed;
   z-index: 10;
+}
+
+@keyframes fadeOutElement {
+  to { opacity: 0; }
+}
+.fadeout-element {
+  animation: fadeOutElement 2s forwards;
 }
