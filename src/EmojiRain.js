@@ -66,3 +66,4 @@ function startEmojiRain() {
       
     animate();
 }
+window.startEmojiRain = startEmojiRain
