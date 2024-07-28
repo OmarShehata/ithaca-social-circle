@@ -3,6 +3,7 @@
 
 :root {
   --text-color: #000000;
+  --muted-color: #b6b0aa;
 }
 
 html {
@@ -50,16 +51,6 @@ html {
   padding:0px;
 }
 
-body {
-  background-image: linear-gradient(
-    #fff7ee, 0%,
-   #fff7ee, 25%,
-   rgba(255, 255, 255, 0), 50%, 
-   rgba(255, 255, 255, 0));
-  margin: 0px;
-  padding: 0px;
-}
-
 .section-title {
   color:#5b5248
 }
@@ -70,4 +61,26 @@ body {
 
 .placeholder {
   color: rgba(0, 0, 0, 0.5)
+}
+
+.content-box {
+  background-color: #fff7ee; /* Solid color background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Drop shadow */
+  padding: 20px; /* Space inside the div */
+  margin: 20px auto; /* Space outside the div and center alignment */
+  max-width: 800px; /* Optional: to limit the width */
+  box-sizing: border-box;
+}
+
+.muted {
+  color: var(--muted-color);
+}
+
+.muted a {
+  color: var(--muted-color);
+}
+
+.no-margin {
+  margin:0px;
 }

@@ -1,3 +1,13 @@
+body {
+  background-image: linear-gradient(
+    #fff7ee, 0%,
+   #fff7ee, 25%,
+   rgba(255, 255, 255, 0), 50%, 
+   rgba(255, 255, 255, 0));
+  margin: 0px;
+  padding: 0px;
+}
+
 /* styles specific to the homepage */
 #title-container {
   font-family: 'Glacial-light';
@@ -20,6 +30,7 @@
   color: #5b5248;
   padding-left: 50px;
   padding-right: 50px;
+  max-width: 400px;
 }
 
 #logo-svg {
@@ -42,6 +53,7 @@
   }
   #title-container {
     flex-flow: column wrap;
+    align-items: center;
   }
 }
 
@@ -55,7 +67,7 @@
   text-underline-offset: 2px;
 }
 #attribution p {
-  font-size: 12px;
+  font-size: 18px;
   text-align: center;
 }
 
