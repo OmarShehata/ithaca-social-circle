@@ -63,8 +63,7 @@ async function fetchCalenderData() {
         calendarDiv.innerHTML += 'There are currently no scheduled events on the calendar, sign up to the mailing list or Discord to be notified!'
     }
 }
-
-
+window.fetchCalenderData = fetchCalenderData
 
 function formatTime(dateString) {
     const date = new Date(dateString)
