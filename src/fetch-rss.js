@@ -42,10 +42,11 @@ async function fetchCalenderData() {
         const event = sortedEvents[i]
         const start = formatTime(event.start.dateTime)
         const end = formatTime(event.end.dateTime)
+        const formattedDate = formattedDay(event.start.dateTime)
         calendarDiv.innerHTML += 
         `
             <h3 class="section-title" style="margin-bottom:0px;">${event.summary}</h3>
-            <p class="no-margin muted">${start}-${end}</p>
+            <p class="no-margin muted">${formattedDate}, ${start}-${end}</p>
             <p class="muted" style="font-size: 20px; max-width: 400px; margin-top:0px;">
                 <a href="https://maps.google.com/?q=${event.location}" target="_blank">
                     ${event.location}
@@ -80,6 +81,19 @@ function formatTime(dateString) {
     // Create the formatted time string
     const formattedTime = hours + (isPM ? 'pm' : 'am');
     return formattedTime
+}
+
+function formattedDay(dateString) {
+    const date = new Date(dateString)
+
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    const day = days[date.getDay()];
+    const month = months[date.getMonth()];
+    const dayOfMonth = date.getDate();
+
+    return `${day}, ${month} ${dayOfMonth}`
 }
 
 function isLocalhost() {
