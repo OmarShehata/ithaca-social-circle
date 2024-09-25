@@ -10,6 +10,10 @@ html {
   color: var(--text-color);
   padding: 5px;
 }
+body {
+  margin: 0px;
+  padding: 0px;
+}
 
 a {
   color: var(--text-color);
@@ -127,3 +131,4 @@ html {
   font-size: 18px;
   text-align: center;
 }
+
