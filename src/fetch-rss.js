@@ -38,7 +38,7 @@ async function fetchCalenderData() {
     parent.appendChild(calendarDiv)
     let length = sortedEvents.length
     if (length > 3) length = 3;
-    for (let i = 0; i < sortedEvents.length; i++) {
+    for (let i = 0; i < length; i++) {
         const event = sortedEvents[i]
         const start = formatTime(event.start.dateTime)
         const end = formatTime(event.end.dateTime)
