@@ -10,7 +10,7 @@ async function fetchMastodonRSS() {
 }
 
 const mockData = `[{"kind":"calendar#event","etag":"\\"3444349804204000\\"","id":"42v3t032d694f8jgnecla2vc1k","status":"confirmed","htmlLink":"https://www.google.com/calendar/event?eid=NDJ2M3QwMzJkNjk0ZjhqZ25lY2xhMnZjMWsgMmRkNjliYjA1ZTczZmU1ZDRkZjE2M2VkNGU5NTRiN2Y4NDczNmEzNGFmOTEyYTdmYTYyMTY0N2I1M2VlYzIyOUBn","created":"2024-07-28T13:55:02.000Z","updated":"2024-07-28T13:55:02.102Z","summary":"Bi weekly happy hour","description":"We'll have nametags and signs! This is the main location, NOT the collegetown location. \\n\\nIf you need a ride or want to offer a ride, post in the discord!","location":"Ithaca Beer Co, 122 Ithaca Beer Dr, Ithaca, NY 14850, USA","creator":{"email":"omar.sameh.shehata@gmail.com"},"organizer":{"email":"2dd69bb05e73fe5d4df163ed4e954b7f84736a34af912a7fa621647b53eec229@group.calendar.google.com","displayName":"Ithaca Social Circle","self":true},"start":{"dateTime":"2024-08-09T19:00:00-04:00","timeZone":"America/New_York"},"end":{"dateTime":"2024-08-09T21:30:00-04:00","timeZone":"America/New_York"},"iCalUID":"42v3t032d694f8jgnecla2vc1k@google.com","sequence":0,"eventType":"default"}]`
-const USE_MOCK_DATA = isLocalhost()
+const USE_MOCK_DATA = false//isLocalhost()
 
 async function fetchCalenderData() {
     let events;
@@ -23,9 +23,11 @@ async function fetchCalenderData() {
         events = JSON.parse(mockData) 
     }
     
+    // skip recurring events because they don't appear in the order expected
+    // (they're not individual events, they are one event that has a "recurrence" rule)
     const today = new Date().setHours(0, 0, 0, 0);
     const upcomingEvents = 
-        events.filter(event => new Date(event.start.dateTime) >= today);
+        events.filter(event => new Date(event.start.dateTime) >= today).filter(event => event.recurrence == null);
     const sortedEvents = upcomingEvents.sort((a, b) => {
         const dateA = new Date(a.start.dateTime);
         const dateB = new Date(b.start.dateTime);
@@ -37,6 +39,8 @@ async function fetchCalenderData() {
     const calendarDiv = document.createElement('div')
     parent.appendChild(calendarDiv)
     let length = sortedEvents.length
+    console.log(sortedEvents)
+    window.sortedEvents = sortedEvents
     if (length > 3) length = 3;
     for (let i = 0; i < length; i++) {
         const event = sortedEvents[i]
