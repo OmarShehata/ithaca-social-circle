@@ -47,6 +47,10 @@ async function fetchCalenderData() {
         const start = formatTime(event.start.dateTime)
         const end = formatTime(event.end.dateTime)
         const formattedDate = formattedDay(event.start.dateTime)
+        let description = event.description || ""
+
+        if (event.summary == null) continue
+
         calendarDiv.innerHTML += 
         `
             <h3 class="section-title" style="margin-bottom:0px;">${event.summary}</h3>
@@ -57,7 +61,7 @@ async function fetchCalenderData() {
                 </a>
             </p>
             <p>
-                ${event.description.replace(/\n/g, '<br>')}
+                ${description.replace(/\n/g, '<br>')}
             </p>
         `
 
