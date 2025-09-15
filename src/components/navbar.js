@@ -14,6 +14,9 @@ class Navbar extends HTMLElement {
         <a id="home" href="/">Home</a>
         <a id="about" href="/about.html">About</a>
         <a id="our-friends" href="/our-friends.html">Our Friends</a>
+        <a id="instagram" href="https://www.instagram.com/ithacasocialcircle/">
+          <img src="assets/instagram.png" width="25px"></img>
+        </a>
 
         <style>
         ${style}
@@ -62,6 +65,8 @@ var style =
   background-color: #eca247;
   color: white;
 }
+
+
 `
 
 window.customElements.define(elementName, Navbar);
