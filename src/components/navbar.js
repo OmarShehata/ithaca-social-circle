@@ -1,3 +1,5 @@
+import instagramIcon from '../../assets/instagram.png';
+
 const elementName = 'custom-navbar'
 class Navbar extends HTMLElement {
 	constructor() {
@@ -15,7 +17,7 @@ class Navbar extends HTMLElement {
         <a id="about" href="/about.html">About</a>
         <a id="our-friends" href="/our-friends.html">Our Friends</a>
         <a id="instagram" href="https://www.instagram.com/ithacasocialcircle/">
-          <img src="assets/instagram.png" width="25px"></img>
+          <img src="${instagramIcon}" width="25px"></img>
         </a>
 
         <style>
