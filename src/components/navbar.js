@@ -15,7 +15,7 @@ class Navbar extends HTMLElement {
         `	
         <a id="home" href="/">Home</a>
         <a id="about" href="/about.html">About</a>
-        <a id="our-friends" href="/our-friends.html">Our Friends</a>
+        <!-- <a id="our-friends" href="/our-friends.html">Our Friends</a> -->
         <a id="instagram" href="https://www.instagram.com/ithacasocialcircle/">
           <img src="${instagramIcon}" width="25px"></img>
         </a>
@@ -31,7 +31,7 @@ class Navbar extends HTMLElement {
 
     if (pathname == "/") setActive("#home")
     if (pathname == "/about.html") setActive("#about")
-    if (pathname == "/our-friends.html") setActive("#our-friends")
+    if (pathname == "/our-friends.html" && element.querySelector("#our-friends")) setActive("#our-friends")
       
 	  this.appendChild(element)    
 	}
