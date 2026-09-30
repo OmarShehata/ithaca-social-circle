@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ithaca Government Map</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --accent: #2a78d6;
+  --k-department: #2a78d6;
+  --k-elected: #eb6834;
+  --k-board: #1baf7a;
+  --k-division: #eda100;
+  --k-office: #e87ba4;
+  --k-agency: #008300;
+  --bar: #2a78d6;
+  --flag-bg: #fff6df;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255,255,255,0.10);
+    --accent: #3987e5;
+    --k-department: #3987e5;
+    --k-elected: #d95926;
+    --k-board: #199e70;
+    --k-division: #c98500;
+    --k-office: #d55181;
+    --k-agency: #008300;
+    --bar: #3987e5;
+    --flag-bg: #2e2715;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --border: rgba(255,255,255,0.10);
+  --accent: #3987e5;
+  --k-department: #3987e5;
+  --k-elected: #d95926;
+  --k-board: #199e70;
+  --k-division: #c98500;
+  --k-office: #d55181;
+  --k-agency: #008300;
+  --bar: #3987e5;
+  --flag-bg: #2e2715;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--page); color: var(--ink);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+a { color: var(--accent); }
+.app { display: grid; grid-template-columns: 360px 1fr; height: 100vh; }
+aside {
+  background: var(--surface); border-right: 1px solid var(--border);
+  overflow-y: auto; padding: 20px;
+}
+main { position: relative; overflow: hidden; min-width: 0; }
+aside { min-width: 0; }
+svg { display: block; }
+h1 { font-size: 17px; margin: 0 0 4px; }
+h2 { font-size: 20px; margin: 4px 0 8px; }
+h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 20px 0 6px; }
+.sub { color: var(--ink-2); margin: 0 0 16px; }
+input[type=search] {
+  width: 100%; padding: 8px 10px; font: inherit; color: var(--ink);
+  background: var(--page); border: 1px solid var(--border); border-radius: 8px;
+}
+.toolbar { position: absolute; top: 16px; right: 16px; display: flex; gap: 4px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 3px; z-index: 2; }
+.toolbar button { font: inherit; border: 0; background: none; color: var(--ink-2); padding: 5px 12px; border-radius: 6px; cursor: pointer; }
+.toolbar button[aria-pressed=true] { background: var(--page); color: var(--ink); font-weight: 600; }
+.badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-2); }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; }
+ul.links { margin: 0; padding-left: 18px; }
+.flag { background: var(--flag-bg); border-radius: 8px; padding: 8px 10px; color: var(--ink-2); font-size: 13px; }
+.link { color: var(--accent); cursor: pointer; text-decoration: underline; background: none; border: 0; padding: 0; font: inherit; text-align: left; display: inline; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.hint { color: var(--muted); font-size: 12px; }
+.edit { font-size: 12px; color: var(--muted); margin-top: 20px; }
+code { font-size: 12px; }
+svg text { fill: var(--ink-2); font-size: 11px; }
+.ring { fill: none; stroke: var(--grid); stroke-dasharray: 3 4; }
+.ring-label { fill: var(--muted); font-size: 10px; letter-spacing: .08em; font-weight: 600; }
+.edge { fill: none; stroke: var(--axis); stroke-width: 1; opacity: .5; }
+.edge.hi { stroke: var(--ink-2); opacity: 1; stroke-width: 1.5; }
+.edge.appoint { stroke-dasharray: 4 3; }
+.node circle { stroke: var(--surface); stroke-width: 2; cursor: pointer; }
+.node.sel circle { stroke: var(--ink); stroke-width: 2.5; }
+.node circle.hit { stroke: none; fill: transparent; }
+.node.dim { opacity: .25; }
+.node text { pointer-events: none; }
+.node text, .ring-label { paint-order: stroke; stroke: var(--page); stroke-width: 4px; stroke-linejoin: round; }
+.center-label { fill: var(--ink); font-size: 13px; font-weight: 600; }
+#tip { position: absolute; pointer-events: none; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12); max-width: 280px; display: none; z-index: 3; }
+#budget { position: absolute; inset: 0; overflow-y: auto; padding: 64px 32px 32px; display: none; }
+.chart { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; max-width: 820px; }
+.chart h2 { font-size: 15px; margin: 0 0 2px; }
+.chart p { margin: 0 0 12px; color: var(--ink-2); font-size: 13px; }
+.bar { fill: var(--bar); }
+.bar-row { cursor: default; }
+.bar-row.clickable { cursor: pointer; }
+.bar-row:hover .bar { opacity: .8; }
+.bar-hit { fill: transparent; }
+.axis-line { stroke: var(--axis); }
+.value { fill: var(--ink); font-variant-numeric: tabular-nums; }
+@media (max-width: 800px) {
+  .app { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto; height: auto; }
+  aside { border-right: 0; border-bottom: 1px solid var(--border); padding: 16px; }
+  main { height: min(70vh, calc(100vw + 80px)); }
+  #budget { padding: 56px 16px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <h1>Ithaca Government Map</h1>
+    <p class="sub">Who runs the City of Ithaca, and how it fits together.</p>
+    <input type="search" id="search" list="names" placeholder="Search boards, departments, offices…" aria-label="Search">
+    <datalist id="names"></datalist>
+    <div id="detail"></div>
+  </aside>
+  <main>
+    <div class="toolbar" role="group" aria-label="View">
+      <button id="btn-graph" aria-pressed="true">Graph</button>
+      <button id="btn-budget" aria-pressed="false">Budget</button>
+    </div>
+    <svg id="graph" role="img" aria-label="Rings of City of Ithaca government bodies"></svg>
+    <div id="budget"></div>
+    <div id="tip"></div>
+  </main>
+</div>
+<script>
+const RING = { elected: 1, office: 1, department: 2, agency: 2, division: 3, board: 4 };
+const RING_R = [0, 0.2, 0.44, 0.66, 0.9];
+const RING_NAME = ["", "ELECTED & CITY MANAGER", "DEPARTMENTS & AGENCIES", "DIVISIONS", "BOARDS, COMMISSIONS & COMMITTEES"];
+const KIND_LABEL = { jurisdiction: "Government", elected: "Elected", office: "Executive office",
+  department: "Department", division: "Division", board: "Board / commission / committee", agency: "Agency" };
+const fmt$ = d3.format("$,.0f");
+const fmtM = v => "$" + (v / 1e6).toFixed(1) + "M";
+
+let data, byId, deptByEntity, children, selected = null;
+
+d3.json("data.json").then(d => {
+  data = d;
+  byId = new Map(d.entities.map(e => [e.id, e]));
+  const year = Object.keys(d.budgets).sort().pop();
+  data.year = year;
+  deptByEntity = new Map(d.budgets[year].departments.filter(r => r.entity).map(r => [r.entity, r]));
+  children = d3.group(d.entities.filter(e => e.reports_to), e => e.reports_to);
+  d3.select("#names").selectAll("option").data(d.entities).join("option").attr("value", e => e.name);
+  d3.select("#search").on("change", function () {
+    const e = d.entities.find(e => e.name.toLowerCase() === this.value.toLowerCase())
+      || d.entities.find(e => e.name.toLowerCase().includes(this.value.toLowerCase()));
+    if (e) { select(e.id); showView("graph"); }
+  });
+  d3.select("#btn-graph").on("click", () => showView("graph"));
+  d3.select("#btn-budget").on("click", () => showView("budget"));
+  drawGraph();
+  showIntro();
+  window.addEventListener("resize", () => {
+    drawGraph();
+    if (d3.select("#budget").style("display") !== "none") drawBudget();
+  });
+});
+
+function showView(v) {
+  d3.select("#btn-graph").attr("aria-pressed", v === "graph");
+  d3.select("#btn-budget").attr("aria-pressed", v === "budget");
+  d3.select("#graph").style("display", v === "graph" ? null : "none");
+  d3.select("#budget").style("display", v === "budget" ? "block" : "none");
+  if (v === "budget") drawBudget();
+}
+
+function shortName(e) { return e.name.split(" / ")[0].replace(/ \(.*\)$/, ""); }
+function kindColor(k) { return `var(--k-${k})`; }
+
+function layout() {
+  const nodes = data.entities.filter(e => RING[e.kind]);
+  const angle = new Map();
+  const key = e => {
+    const p = e.reports_to && byId.get(e.reports_to);
+    if (p && angle.has(p.id)) return angle.get(p.id);
+    if (p && RING[p.kind] === RING[e.kind]) return key(p) + 0.001;
+    const a = (e.appointed_by || []).find(id => angle.has(id));
+    return a ? angle.get(a) + 0.5 : 99;
+  };
+  // Leave a wedge free at the bottom of every ring for the ring labels.
+  const gap = 0.8, start = Math.PI / 2 + gap / 2, span = 2 * Math.PI - gap;
+  for (let ring = 1; ring <= 4; ring++) {
+    const members = nodes.filter(e => RING[e.kind] === ring)
+      .map(e => ({ e, k: key(e) }))
+      .sort((a, b) => a.k - b.k || a.e.name.localeCompare(b.e.name));
+    if (ring === 3) {
+      // Divisions sit right next to their parent department.
+      d3.group(members, m => m.e.reports_to).forEach((sibs, parent) =>
+        sibs.forEach(({ e }, i) => angle.set(e.id, angle.get(parent) + (i - (sibs.length - 1) / 2) * 0.16)));
+    } else {
+      members.forEach(({ e }, i) => angle.set(e.id, start + (span * (i + 0.5)) / members.length));
+    }
+  }
+  return { nodes, angle };
+}
+
+function drawGraph() {
+  const svg = d3.select("#graph");
+  const { width, height } = svg.node().parentNode.getBoundingClientRect();
+  svg.attr("width", width).attr("height", height).selectAll("*").remove();
+  const R = Math.min(width, height) / 2 - (width < 600 ? 16 : 60);
+  const g = svg.append("g").attr("transform", `translate(${width / 2},${height / 2 + 10})`);
+  const { nodes, angle } = layout();
+  const pos = new Map([["city-of-ithaca", [0, 0]]]);
+  nodes.forEach(e => {
+    const r = RING_R[RING[e.kind]] * R, a = angle.get(e.id);
+    pos.set(e.id, [r * Math.cos(a), r * Math.sin(a)]);
+  });
+
+  for (let i = 1; i <= 4; i++) {
+    g.append("circle").attr("class", "ring").attr("r", RING_R[i] * R);
+    g.append("text").attr("class", "ring-label").attr("text-anchor", "middle")
+      .attr("y", RING_R[i] * R).attr("dy", "0.35em").text(RING_NAME[i]);
+  }
+
+  const edges = [];
+  data.entities.forEach(e => {
+    if (e.reports_to && pos.has(e.reports_to)) edges.push({ s: e.id, t: e.reports_to, type: "reports" });
+    (e.appointed_by || []).forEach(a => edges.push({ s: e.id, t: a, type: "appoint" }));
+  });
+  const curve = ({ s, t }) => {
+    const [x1, y1] = pos.get(s), [x2, y2] = pos.get(t);
+    return `M${x1},${y1}Q${(x1 + x2) * 0.35},${(y1 + y2) * 0.35} ${x2},${y2}`;
+  };
+  g.append("g").selectAll("path").data(edges).join("path")
+    .attr("class", d => "edge " + (d.type === "appoint" ? "appoint" : ""))
+    .attr("d", curve)
+    .style("display", d => d.type === "appoint" ? "none" : null);
+
+  const center = g.append("g").attr("class", "node").style("cursor", "pointer")
+    .on("click", () => select("city-of-ithaca"));
+  center.append("circle").attr("r", 34).attr("fill", "var(--page)").attr("stroke", "var(--axis)").style("stroke-dasharray", "3 3");
+  center.append("text").attr("class", "center-label").attr("text-anchor", "middle").attr("dy", "-0.2em").text("People of");
+  center.append("text").attr("class", "center-label").attr("text-anchor", "middle").attr("dy", "1em").text("Ithaca");
+
+  const size = e => { const b = deptByEntity.get(e.id); return b ? 5 + Math.sqrt(b.funded_positions) * 1.7 : 5; };
+  const node = g.append("g").selectAll("g").data(nodes).join("g")
+    .attr("class", "node")
+    .attr("transform", e => `translate(${pos.get(e.id)})`)
+    .on("click", (ev, e) => select(e.id))
+    .on("mouseenter", (ev, e) => { highlight(e.id); tip(ev, tipHtml(e)); })
+    .on("mousemove", ev => moveTip(ev))
+    .on("mouseleave", () => { highlight(selected); hideTip(); });
+  node.append("circle").attr("class", "hit").attr("r", e => Math.max(size(e), 6) + 6);
+  node.append("circle").attr("r", size).attr("fill", e => kindColor(e.kind));
+  node.filter(e => RING[e.kind] === 1).append("text")
+    .attr("text-anchor", "middle").attr("y", e => size(e) + 12).text(shortName);
+  node.filter(e => RING[e.kind] >= 2).append("text")
+    // Outer-ring labels point inward so they stay inside the canvas.
+    .attr("x", e => { const out = (pos.get(e.id)[0] >= 0) !== (RING[e.kind] === 4); return (out ? 1 : -1) * (size(e) + 5); })
+    .attr("text-anchor", e => (pos.get(e.id)[0] >= 0) !== (RING[e.kind] === 4) ? "start" : "end")
+    .attr("dy", "0.35em").text(shortName);
+
+  svg.on("click", ev => { if (ev.target === svg.node()) { select(null); } });
+  highlight(selected);
+}
+
+function related(id) {
+  const s = new Set([id]);
+  if (!id) return s;
+  const e = byId.get(id);
+  let p = e.reports_to; while (p) { s.add(p); p = byId.get(p)?.reports_to; }
+  (e.appointed_by || []).forEach(a => s.add(a));
+  const down = x => (children.get(x) || []).forEach(c => { s.add(c.id); down(c.id); });
+  down(id);
+  data.entities.forEach(o => (o.appointed_by || []).includes(id) && s.add(o.id));
+  return s;
+}
+
+function highlight(id) {
+  const rel = related(id);
+  d3.selectAll("#graph .node").classed("dim", e => id && e && !rel.has(e.id))
+    .classed("sel", e => e && e.id === selected);
+  const chain = related(selected);
+  d3.selectAll("#graph .node text:not(.center-label)").style("display", e => selected && chain.has(e.id) ? null : "none");
+  d3.selectAll("#graph .edge")
+    .classed("hi", d => id && (d.s === id || d.t === id || (rel.has(d.s) && rel.has(d.t) && d.type === "reports")))
+    .style("display", d => d.type === "appoint" ? (id && (d.s === id || d.t === id) ? null : "none") : null);
+}
+
+function select(id) {
+  selected = id;
+  highlight(id);
+  if (!id) return showIntro();
+  const e = byId.get(id);
+  d3.select("#search").property("value", "");
+  const link = x => byId.has(x) ? `<button class="link" data-id="${x}">${byId.get(x).name}</button>` : x;
+  const kids = (children.get(id) || []).sort((a, b) => a.name.localeCompare(b.name));
+  const appoints = data.entities.filter(o => (o.appointed_by || []).includes(id));
+  const b = deptByEntity.get(id);
+  let h = `<h3><span class="badge"><span class="dot" style="background:${kindColor(e.kind)}"></span>${KIND_LABEL[e.kind]}</span></h3>
+    <h2>${e.name}</h2>`;
+  if (e.description) h += `<p>${e.description}</p>`;
+  h += `<dl class="facts">`;
+  if (e.reports_to) h += `<dt>Reports to</dt><dd>${link(e.reports_to)}</dd>`;
+  if (e.appointed_by) h += `<dt>Appointed by</dt><dd>${e.appointed_by.map(link).join(", ")}</dd>`;
+  if (e.url) h += `<dt>Official page</dt><dd><a href="${e.url}" target="_blank" rel="noopener">cityofithacany.gov</a></dd>`;
+  h += `</dl>`;
+  if (b) {
+    h += `<h3>${data.year} budget</h3><dl class="facts">
+      <dt>Funded positions</dt><dd>${b.funded_positions}</dd>
+      <dt>Wages + benefits</dt><dd>${fmt$(b.wages + b.fringe)}</dd>
+      ${b.appropriation ? `<dt>Total budget</dt><dd>${fmt$(b.appropriation)}</dd>` : ""}
+    </dl>`;
+    if (b.notes) h += `<p class="hint">${b.notes}</p>`;
+  }
+  if (kids.length) h += `<h3>Oversees (${kids.length})</h3><ul class="links">${kids.map(k => `<li>${link(k.id)}</li>`).join("")}</ul>`;
+  if (appoints.length) h += `<h3>Appoints (${appoints.length})</h3><ul class="links">${appoints.map(k => `<li>${link(k.id)}</li>`).join("")}</ul>`;
+  if (e.members) h += `<h3>Members</h3><ul class="links">${e.members.map(m => `<li>${m.name}${m.role ? ", " + m.role : ""}</li>`).join("")}</ul>`;
+  if (e.notes) h += `<h3>Needs checking</h3><p class="flag">${e.notes}</p>`;
+  h += `<h3>Sources</h3><ul class="links">${(e.sources || []).map(s => `<li><a href="${s.url}" target="_blank" rel="noopener">${new URL(s.url).hostname}</a> <span class="hint">checked ${s.accessed}</span></li>`).join("")}</ul>`;
+  h += `<p class="edit">Something wrong or missing? Edit <code>data/${id}.yaml</code></p>`;
+  h += `<p><button class="link" data-id="">← Overview</button></p>`;
+  d3.select("#detail").html(h).selectAll("button.link").on("click", function () { select(this.dataset.id || null); });
+}
+
+function showIntro() {
+  const counts = d3.rollup(data.entities, v => v.length, e => e.kind);
+  const total = d3.sum(data.budgets[data.year].summary, r => r.amount);
+  const positions = d3.sum(data.budgets[data.year].departments, r => r.funded_positions);
+  const kinds = ["elected", "office", "department", "agency", "division", "board"];
+  d3.select("#detail").html(`
+    <h3>So far</h3>
+    <dl class="facts">
+      <dt>Bodies mapped</dt><dd>${data.entities.length - 1}</dd>
+      <dt>${data.year} budget</dt><dd>${fmtM(total)}</dd>
+      <dt>Funded positions</dt><dd>${positions}</dd>
+    </dl>
+    <h3>Legend</h3>
+    <div class="legend">${kinds.map(k => `<span class="badge"><span class="dot" style="background:${kindColor(k)}"></span>${KIND_LABEL[k]} (${counts.get(k) || 0})</span>`).join("")}</div>
+    <p class="hint">Circle size shows funded positions in the ${data.year} budget; small circles have no budget line of their own. Lines show who reports to whom; hover or click to see who appoints whom (dashed).</p>
+    <h3>About</h3>
+    <p class="hint">An unofficial, hand-maintained map of the City of Ithaca's government, built from public sources. The Town of Ithaca and Tompkins County are separate governments and not shown yet.</p>
+  `);
+}
+
+function barChart(el, rows, { title, sub, value, label, fmt, onClick, tipFor }) {
+  const box = el.append("div").attr("class", "chart");
+  box.append("h2").text(title);
+  box.append("p").text(sub);
+  const w = Math.min(820, el.node().clientWidth) - 42, rowH = 26, labelW = Math.min(230, w * 0.42), valW = 70;
+  const x = d3.scaleLinear().domain([0, d3.max(rows, value)]).range([0, w - labelW - valW]);
+  const svg = box.append("svg").attr("width", w).attr("height", rows.length * rowH + 4)
+    .attr("role", "img").attr("aria-label", title);
+  const row = svg.selectAll("g").data(rows).join("g")
+    .attr("class", d => "bar-row" + (onClick && onClick.can(d) ? " clickable" : ""))
+    .attr("transform", (d, i) => `translate(0,${i * rowH})`)
+    .on("click", (ev, d) => onClick && onClick.can(d) && onClick.go(d))
+    .on("mouseenter", (ev, d) => tip(ev, tipFor(d)))
+    .on("mousemove", ev => moveTip(ev))
+    .on("mouseleave", hideTip);
+  row.append("rect").attr("class", "bar-hit").attr("width", w).attr("height", rowH);
+  row.append("text").attr("x", labelW - 10).attr("y", rowH / 2).attr("dy", "0.35em").attr("text-anchor", "end").text(label);
+  row.append("path").attr("class", "bar").attr("d", d => {
+    const bw = Math.max(x(value(d)), 1), h = rowH - 10, r = Math.min(4, bw);
+    return `M${labelW},5h${bw - r}a${r},${r} 0 0 1 ${r},${r}v${h - 2 * r}a${r},${r} 0 0 1 -${r},${r}h-${bw - r}z`;
+  });
+  row.append("text").attr("class", "value").attr("x", d => labelW + x(value(d)) + 6).attr("y", rowH / 2).attr("dy", "0.35em").text(d => fmt(value(d)));
+  svg.append("line").attr("class", "axis-line").attr("x1", labelW).attr("x2", labelW).attr("y1", 0).attr("y2", rows.length * rowH);
+}
+
+function drawBudget() {
+  const el = d3.select("#budget");
+  el.selectAll("*").remove();
+  const b = data.budgets[data.year];
+  const cats = d3.rollups(b.summary, v => ({ total: d3.sum(v, r => r.amount), funds: v }), r => r.category)
+    .map(([category, v]) => ({ category, ...v })).sort((a, b) => b.total - a.total);
+  const total = d3.sum(cats, c => c.total);
+  el.append("div").style("max-width", "820px").html(`<h2 style="margin-top:0">${fmtM(total)} adopted budget, ${data.year}</h2>
+    <p class="sub">City of Ithaca, all six funds. Source: Final Approved ${data.year} Budget Summary.</p>`);
+  barChart(el, cats, {
+    title: "Where the money goes",
+    sub: "Spending by category. Hover for the split across funds (General, Water, Sewer, …).",
+    value: d => d.total, label: d => d.category, fmt: fmtM,
+    tipFor: d => `<b>${d.category}</b> · ${fmt$(d.total)}<br>` +
+      d.funds.sort((a, b) => b.amount - a.amount).map(f => `${f.fund}: ${fmt$(f.amount)}`).join("<br>"),
+  });
+  const depts = [...b.departments].sort((a, b) => b.funded_positions - a.funded_positions);
+  barChart(el, depts, {
+    title: "Funded positions by department",
+    sub: `${d3.sum(depts, d => d.funded_positions)} budgeted positions (from the proposed ${data.year} budget). Positions, not people: includes part-time and seasonal roles. Click a bar to see the department.`,
+    value: d => d.funded_positions, label: d => byId.get(d.entity) ? shortName(byId.get(d.entity)) : d.department, fmt: d3.format(","),
+    tipFor: d => `<b>${d.department}</b><br>${d.funded_positions} funded positions<br>Wages + benefits: ${fmt$(d.wages + d.fringe)}` +
+      (d.appropriation ? `<br>Total budget: ${fmt$(d.appropriation)}` : "") + (d.notes ? `<br><span class="hint">${d.notes}</span>` : ""),
+    onClick: { can: d => !!d.entity, go: d => { select(d.entity); showView("graph"); } },
+  });
+}
+
+function tipHtml(e) {
+  const b = deptByEntity.get(e.id);
+  return `<b>${e.name}</b><br><span class="hint">${KIND_LABEL[e.kind]}</span>` +
+    (b ? `<br>${b.funded_positions} funded positions` : "");
+}
+function tip(ev, html) { d3.select("#tip").style("display", "block").html(html); moveTip(ev); }
+function moveTip(ev) {
+  const main = document.querySelector("main").getBoundingClientRect();
+  const t = document.getElementById("tip");
+  let x = ev.clientX - main.left + 14, y = ev.clientY - main.top + 14;
+  if (x + t.offsetWidth > main.width) x -= t.offsetWidth + 28;
+  if (y + t.offsetHeight > main.height) y -= t.offsetHeight + 28;
+  t.style.left = x + "px"; t.style.top = y + "px";
+}
+function hideTip() { d3.select("#tip").style("display", "none"); }
+</script>
+</body>
+</html>
