@@ -1,0 +1,1151 @@
+{
+ "entities": [
+  {
+   "name": "Board of Appeals on Building Code",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/361/",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "board-of-appeals-on-building-code"
+  },
+  {
+   "name": "Board of Zoning Appeals",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/368/Board-of-Zoning-Appeals",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "board-of-zoning-appeals"
+  },
+  {
+   "name": "Building Division",
+   "kind": "division",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "planning-and-development",
+   "url": "https://www.cityofithacany.gov/130/Building-Division",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "building-division"
+  },
+  {
+   "name": "Cable Access Oversight Committee",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/369/Cable-Access-Oversight-Committee",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "cable-access-oversight-committee"
+  },
+  {
+   "name": "City Attorney",
+   "kind": "department",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "city-manager",
+   "url": "https://www.cityofithacany.gov/152/City-AttorneyCity-Prosecutor",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    },
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "reports_to based on the City Manager page saying the manager supervises all City departments; verify, especially for City Attorney and City Clerk.",
+   "id": "city-attorney"
+  },
+  {
+   "name": "City Charter Revision Commission",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/830/City-Charter-Revision-Commission",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "city-charter-revision-commission"
+  },
+  {
+   "name": "City Clerk / Department of Information & Community Engagement",
+   "kind": "department",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "city-manager",
+   "url": "https://www.cityofithacany.gov/170/City-ClerkDepartment-of-Information-Comm",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    },
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "reports_to based on the City Manager page saying the manager supervises all City departments; verify, especially for City Attorney and City Clerk.",
+   "id": "city-clerk"
+  },
+  {
+   "name": "City Controller",
+   "kind": "division",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "finance-department",
+   "url": "https://www.cityofithacany.gov/198/City-Controller",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "city-controller"
+  },
+  {
+   "name": "City Manager",
+   "kind": "office",
+   "jurisdiction": "city-of-ithaca",
+   "description": "Appointed by Common Council. Runs day-to-day City operations and supervises all City departments; also responsible for labor relations, personnel, budgeting, and intergovernmental relations.",
+   "reports_to": "common-council",
+   "appointed_by": [
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/780/City-Manager",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "city-manager"
+  },
+  {
+   "name": "City of Ithaca",
+   "kind": "jurisdiction",
+   "description": "The City of Ithaca, New York. Council-manager form of government since 2024-01-01, with about 450 employees.",
+   "url": "https://www.cityofithacany.gov/27/Government",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "city-of-ithaca"
+  },
+  {
+   "name": "City Prosecutor",
+   "kind": "division",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "city-attorney",
+   "url": "https://www.cityofithacany.gov/153/City-Prosecutor",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "city-prosecutor"
+  },
+  {
+   "name": "Civil Service Commission",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/370/Civil-Service-Commission",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "civil-service-commission"
+  },
+  {
+   "name": "Common Council",
+   "kind": "elected",
+   "jurisdiction": "city-of-ithaca",
+   "description": "The City's legislature: 10 members, two from each of the 5 wards, elected to four-year staggered terms. Appoints the City Manager.",
+   "reports_to": "city-of-ithaca",
+   "url": "https://www.cityofithacany.gov/341/Common-Council",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    },
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "Members not yet filled in.",
+   "id": "common-council"
+  },
+  {
+   "name": "Community Life Commission",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "description": "Advisory commission established by Common Council.",
+   "reports_to": "common-council",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "sources": [
+    {
+     "url": "https://ecode360.com/33089856",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "Seen in a search snippet of the City Code on eCode360 (page blocks scripted access); not listed on the City's Boards & Committees page. appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "community-life-commission"
+  },
+  {
+   "name": "Community Police Board",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/379/Community-Police-Board",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "community-police-board"
+  },
+  {
+   "name": "Engineering",
+   "kind": "division",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "public-works",
+   "url": "https://www.cityofithacany.gov/218/Engineering",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "engineering"
+  },
+  {
+   "name": "Ethics Advisory Board",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/791/Ethic-Advisory-Board",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "ethics-advisory-board"
+  },
+  {
+   "name": "Examining Board of Electricians",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/376/",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "examining-board-of-electricians"
+  },
+  {
+   "name": "Examining Board of Plumbers",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/375/",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "examining-board-of-plumbers"
+  },
+  {
+   "name": "Finance Department / Chamberlain's Office",
+   "kind": "department",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "city-manager",
+   "url": "https://www.cityofithacany.gov/488/Finance-DepartmentChamberlains-Office",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    },
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "reports_to based on the City Manager page saying the manager supervises all City departments; verify, especially for City Attorney and City Clerk.",
+   "id": "finance-department"
+  },
+  {
+   "name": "Greater Ithaca Activities Center",
+   "kind": "department",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "city-manager",
+   "url": "https://www.cityofithacany.gov/327/Greater-Ithaca-Activities-Center",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    },
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "reports_to based on the City Manager page saying the manager supervises all City departments; verify, especially for City Attorney and City Clerk.",
+   "id": "greater-ithaca-activities-center"
+  },
+  {
+   "name": "Housing Board of Review",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/373/",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "housing-board-of-review"
+  },
+  {
+   "name": "Human Resources",
+   "kind": "department",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "city-manager",
+   "url": "https://www.cityofithacany.gov/294/Human-Resources",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    },
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "reports_to based on the City Manager page saying the manager supervises all City departments; verify, especially for City Attorney and City Clerk.",
+   "id": "human-resources"
+  },
+  {
+   "name": "Ithaca Fire Department",
+   "kind": "department",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "city-manager",
+   "url": "https://www.cityofithacany.gov/204/Ithaca-Fire-Department",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    },
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "reports_to based on the City Manager page saying the manager supervises all City departments; verify, especially for City Attorney and City Clerk.",
+   "id": "ithaca-fire-department"
+  },
+  {
+   "name": "Ithaca Housing Authority",
+   "kind": "agency",
+   "jurisdiction": "city-of-ithaca",
+   "url": "https://www.cityofithacany.gov/372/",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "Listed on the City's Boards & Committees page. Structure not yet filled in.",
+   "id": "ithaca-housing-authority"
+  },
+  {
+   "name": "Ithaca Landmarks Preservation Commission",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/346/Ithaca-Landmarks-Preservation-Commission",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "ithaca-landmarks-preservation-commission"
+  },
+  {
+   "name": "Ithaca Police Department",
+   "kind": "department",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "city-manager",
+   "url": "https://www.cityofithacany.gov/234/Ithaca-Police-Department",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    },
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "reports_to based on the City Manager page saying the manager supervises all City departments; verify, especially for City Attorney and City Clerk.",
+   "id": "ithaca-police-department"
+  },
+  {
+   "name": "Ithaca Urban Renewal Agency",
+   "kind": "agency",
+   "jurisdiction": "city-of-ithaca",
+   "url": "https://www.cityofithacany.gov/360/Ithaca-Urban-Renewal-Agency-Board",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    },
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "Listed both as a department (/290) and as a board (/360). How its board is appointed and who it answers to is not yet filled in.",
+   "id": "ithaca-urban-renewal-agency"
+  },
+  {
+   "name": "Ithaca Youth Bureau",
+   "kind": "department",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "city-manager",
+   "url": "https://www.cityofithacany.gov/205/Ithaca-Youth-Bureau",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    },
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "reports_to based on the City Manager page saying the manager supervises all City departments; verify, especially for City Attorney and City Clerk.",
+   "id": "ithaca-youth-bureau"
+  },
+  {
+   "name": "IURA Audit Committee",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "ithaca-urban-renewal-agency",
+   "url": "https://www.cityofithacany.gov/596/",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "iura-audit-committee"
+  },
+  {
+   "name": "IURA Economic Development Committee",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "ithaca-urban-renewal-agency",
+   "url": "https://www.cityofithacany.gov/363/",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "iura-economic-development-committee"
+  },
+  {
+   "name": "IURA Governance Committee",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "ithaca-urban-renewal-agency",
+   "url": "https://www.cityofithacany.gov/364/",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "iura-governance-committee"
+  },
+  {
+   "name": "IURA Neighborhood Investment Committee",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "ithaca-urban-renewal-agency",
+   "url": "https://www.cityofithacany.gov/366/",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "iura-neighborhood-investment-committee"
+  },
+  {
+   "name": "Mayor",
+   "kind": "elected",
+   "jurisdiction": "city-of-ithaca",
+   "description": "Full-time mayor elected at-large for a four-year term. Appoints members of citizen boards and commissions with the advice and consent of Common Council.",
+   "reports_to": "city-of-ithaca",
+   "url": "https://www.cityofithacany.gov/131/Mayors-Office",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "Current officeholder not yet filled in.",
+   "id": "mayor"
+  },
+  {
+   "name": "Mayor's Office",
+   "kind": "department",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "mayor",
+   "url": "https://www.cityofithacany.gov/131/Mayors-Office",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "mayors-office"
+  },
+  {
+   "name": "Mobility, Accessibility, and Transportation Commission",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "description": "Advisory commission established by Common Council.",
+   "reports_to": "common-council",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "sources": [
+    {
+     "url": "https://ecode360.com/33089856",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "Seen in a search snippet of the City Code on eCode360 (page blocks scripted access); not listed on the City's Boards & Committees page. appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "mobility-accessibility-and-transportation-commission"
+  },
+  {
+   "name": "Parks & Forestry",
+   "kind": "division",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "public-works",
+   "url": "https://www.cityofithacany.gov/245/Parks-Forestry",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "parks-and-forestry"
+  },
+  {
+   "name": "Parks, Recreation, and Natural Resources Commission",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "description": "Advisory commission established by Common Council.",
+   "reports_to": "common-council",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "sources": [
+    {
+     "url": "https://ecode360.com/33089856",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "Seen in a search snippet of the City Code on eCode360 (page blocks scripted access); not listed on the City's Boards & Committees page. appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "parks-recreation-and-natural-resources-commission"
+  },
+  {
+   "name": "Planning & Development Board: Project Review Committee",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "planning-and-development-board",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "planning-and-development-board-project-review-committee"
+  },
+  {
+   "name": "Planning & Development Board",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/354/Planning-Development-Board",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "planning-and-development-board"
+  },
+  {
+   "name": "Planning & Development / Building",
+   "kind": "department",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "city-manager",
+   "url": "https://www.cityofithacany.gov/508/Planning-DevelopmentBuilding",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    },
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "reports_to based on the City Manager page saying the manager supervises all City departments; verify, especially for City Attorney and City Clerk.",
+   "id": "planning-and-development"
+  },
+  {
+   "name": "Planning Division",
+   "kind": "division",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "planning-and-development",
+   "url": "https://www.cityofithacany.gov/133/Planning-Division",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "planning-division"
+  },
+  {
+   "name": "Public Safety and Information Commission",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "description": "Advisory commission established by Common Council.",
+   "reports_to": "common-council",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "sources": [
+    {
+     "url": "https://ecode360.com/33089856",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "Seen in a search snippet of the City Code on eCode360 (page blocks scripted access); not listed on the City's Boards & Committees page. appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "public-safety-and-information-commission"
+  },
+  {
+   "name": "Public Works",
+   "kind": "department",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "city-manager",
+   "url": "https://www.cityofithacany.gov/208/Public-Works",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    },
+    {
+     "url": "https://www.cityofithacany.gov/780/City-Manager",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "reports_to based on the City Manager page saying the manager supervises all City departments; verify, especially for City Attorney and City Clerk.",
+   "id": "public-works"
+  },
+  {
+   "name": "Special Committee on Coordinated Unhoused Services Planning (CUSP)",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/876/Special-Committee-on-Coordinated-Unhouse",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "special-committee-coordinated-unhoused-services-planning"
+  },
+  {
+   "name": "Special Committee on Wrongful Discharge and Labor Protections",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/831/Special-Committee-on-Wrongful-Discharge-",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "special-committee-wrongful-discharge-labor-protections"
+  },
+  {
+   "name": "Special Joint Committee - IAWWTP",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "url": "https://www.cityofithacany.gov/615/Special-Joint-Committee---IAWWTP",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "Joint with other municipalities that share the Ithaca Area Wastewater Treatment Plant; which ones, and how members are chosen, not yet filled in.",
+   "id": "special-joint-committee-iawwtp"
+  },
+  {
+   "name": "Sustainability and Climate Justice Commission",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "description": "Advisory commission established by Common Council.",
+   "reports_to": "common-council",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/762/Sustainability-and-Climate-Justice-Commi",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    },
+    {
+     "url": "https://ecode360.com/33089856",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "sustainability-and-climate-justice-commission"
+  },
+  {
+   "name": "Water & Sewer",
+   "kind": "division",
+   "jurisdiction": "city-of-ithaca",
+   "reports_to": "public-works",
+   "url": "https://www.cityofithacany.gov/291/Water-Sewer",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/129/Departments",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "id": "water-and-sewer"
+  },
+  {
+   "name": "Workforce Diversity Advisory Committee",
+   "kind": "board",
+   "jurisdiction": "city-of-ithaca",
+   "appointed_by": [
+    "mayor",
+    "common-council"
+   ],
+   "url": "https://www.cityofithacany.gov/350/Workforce-Diversity-Advisory-Committee",
+   "sources": [
+    {
+     "url": "https://www.cityofithacany.gov/339/Boards-Committees",
+     "accessed": "2026-09-30"
+    }
+   ],
+   "notes": "appointed_by is the general rule from the Boards & Committees page (Mayor appoints with advice and consent of Council); verify against the charter/code. Description and members not yet filled in.",
+   "id": "workforce-diversity-advisory-committee"
+  }
+ ],
+ "budgets": {
+  "2026": {
+   "summary": [
+    {
+     "category": "General Government Support",
+     "fund": "General",
+     "amount": 10678469
+    },
+    {
+     "category": "General Government Support",
+     "fund": "Water",
+     "amount": 362573
+    },
+    {
+     "category": "General Government Support",
+     "fund": "Sewer",
+     "amount": 320634
+    },
+    {
+     "category": "Public Safety",
+     "fund": "General",
+     "amount": 20124374
+    },
+    {
+     "category": "Transportation",
+     "fund": "General",
+     "amount": 8203834
+    },
+    {
+     "category": "Economic Development",
+     "fund": "General",
+     "amount": 2711910
+    },
+    {
+     "category": "Culture & Recreation",
+     "fund": "General",
+     "amount": 8810348
+    },
+    {
+     "category": "Home & Community Services",
+     "fund": "General",
+     "amount": 2691435
+    },
+    {
+     "category": "Home & Community Services",
+     "fund": "Water",
+     "amount": 4621458
+    },
+    {
+     "category": "Home & Community Services",
+     "fund": "Sewer",
+     "amount": 6010918
+    },
+    {
+     "category": "Home & Community Services",
+     "fund": "Solid Waste",
+     "amount": 545905
+    },
+    {
+     "category": "Home & Community Services",
+     "fund": "Sidewalk Improvement District",
+     "amount": 1081271
+    },
+    {
+     "category": "Home & Community Services",
+     "fund": "Stormwater",
+     "amount": 902757
+    },
+    {
+     "category": "Employee Benefits",
+     "fund": "General",
+     "amount": 25333035
+    },
+    {
+     "category": "Employee Benefits",
+     "fund": "Water",
+     "amount": 1078739
+    },
+    {
+     "category": "Employee Benefits",
+     "fund": "Sewer",
+     "amount": 825829
+    },
+    {
+     "category": "Employee Benefits",
+     "fund": "Solid Waste",
+     "amount": 147580
+    },
+    {
+     "category": "Employee Benefits",
+     "fund": "Sidewalk Improvement District",
+     "amount": 17428
+    },
+    {
+     "category": "Employee Benefits",
+     "fund": "Stormwater",
+     "amount": 317135
+    },
+    {
+     "category": "Debt Service",
+     "fund": "General",
+     "amount": 9627800
+    },
+    {
+     "category": "Debt Service",
+     "fund": "Water",
+     "amount": 2647516
+    },
+    {
+     "category": "Debt Service",
+     "fund": "Sewer",
+     "amount": 2387033
+    },
+    {
+     "category": "Debt Service",
+     "fund": "Solid Waste",
+     "amount": 37432
+    },
+    {
+     "category": "Debt Service",
+     "fund": "Sidewalk Improvement District",
+     "amount": 64199
+    },
+    {
+     "category": "Debt Service",
+     "fund": "Stormwater",
+     "amount": 22438
+    },
+    {
+     "category": "Interfund Transfers",
+     "fund": "General",
+     "amount": 961749
+    },
+    {
+     "category": "Interfund Transfers",
+     "fund": "Water",
+     "amount": 370000
+    },
+    {
+     "category": "Interfund Transfers",
+     "fund": "Sewer",
+     "amount": 304000
+    },
+    {
+     "category": "Interfund Transfers",
+     "fund": "Stormwater",
+     "amount": 250000
+    }
+   ],
+   "departments": [
+    {
+     "department": "LEGISLATIVE",
+     "entity": "common-council",
+     "funded_positions": 10,
+     "wages": 170937,
+     "fringe": 48247,
+     "appropriation": null,
+     "account_code": "A1010",
+     "notes": "Appropriation is combined with Mayor: $283489 for Mayor and Common Council"
+    },
+    {
+     "department": "MAYOR",
+     "entity": "mayor",
+     "funded_positions": 1,
+     "wages": 30000,
+     "fringe": 6405,
+     "appropriation": null,
+     "account_code": "A1210",
+     "notes": "Appropriation is combined with Common Council (see LEGISLATIVE)"
+    },
+    {
+     "department": "CITY MANAGER",
+     "entity": "city-manager",
+     "funded_positions": 4,
+     "wages": 410321,
+     "fringe": 141266,
+     "appropriation": 673699,
+     "account_code": "A1230",
+     "notes": ""
+    },
+    {
+     "department": "FINANCE DEPARTMENT",
+     "entity": "finance-department",
+     "funded_positions": 14,
+     "wages": 1015251,
+     "fringe": 608997,
+     "appropriation": null,
+     "account_code": "A1315",
+     "notes": "Budget book shows only the Controller's appropriation ($1378453); Chamberlain's is separate"
+    },
+    {
+     "department": "INFORMATION & COMMUNITY ENGAGEMENT",
+     "entity": "city-clerk",
+     "funded_positions": 12,
+     "wages": 956148,
+     "fringe": 456434,
+     "appropriation": 2231639,
+     "account_code": "A1316",
+     "notes": ""
+    },
+    {
+     "department": "HUMAN RESOURCES",
+     "entity": "human-resources",
+     "funded_positions": 8,
+     "wages": 727863,
+     "fringe": 320130,
+     "appropriation": 1208869,
+     "account_code": "A1430",
+     "notes": ""
+    },
+    {
+     "department": "DPW- STREETS & ENGINEERING",
+     "entity": "public-works",
+     "funded_positions": 83,
+     "wages": 11447797,
+     "fringe": 7135115,
+     "appropriation": null,
+     "account_code": "",
+     "notes": "DPW overview page shows $19464216 appropriation and $5870543 personnel; unclear how that reconciles with these wages"
+    },
+    {
+     "department": "DPW-WATER & SEWER",
+     "entity": "water-and-sewer",
+     "funded_positions": 55,
+     "wages": 3694124,
+     "fringe": 2050329,
+     "appropriation": null,
+     "account_code": "",
+     "notes": "Paid from the Water and Sewer funds rather than the General Fund"
+    },
+    {
+     "department": "POLICE DEPARTMENT",
+     "entity": "ithaca-police-department",
+     "funded_positions": 97,
+     "wages": 8792093,
+     "fringe": 5375630,
+     "appropriation": 16231641,
+     "account_code": "A3120",
+     "notes": "Budget book prose says 76 staff (55 sworn); funded positions may include roles like crossing guards or parking"
+    },
+    {
+     "department": "FIRE DEPARTMENT",
+     "entity": "ithaca-fire-department",
+     "funded_positions": 72,
+     "wages": 7800076,
+     "fringe": 4880861,
+     "appropriation": 15288728,
+     "account_code": "A3410",
+     "notes": "Budget book prose says 64 career firefighters plus an administrative coordinator"
+    },
+    {
+     "department": "YOUTH BUREAU",
+     "entity": "ithaca-youth-bureau",
+     "funded_positions": 52,
+     "wages": 3778541,
+     "fringe": 1643614,
+     "appropriation": 6669597,
+     "account_code": "A7310",
+     "notes": ""
+    },
+    {
+     "department": "PLANNING DEPARTMENT",
+     "entity": "planning-and-development",
+     "funded_positions": 32,
+     "wages": 2506597,
+     "fringe": 1163985,
+     "appropriation": 3936896,
+     "account_code": "A8020",
+     "notes": ""
+    },
+    {
+     "department": "GIAC",
+     "entity": "greater-ithaca-activities-center",
+     "funded_positions": 33,
+     "wages": 2639570,
+     "fringe": 1239939,
+     "appropriation": 4632892,
+     "account_code": "A7311",
+     "notes": ""
+    },
+    {
+     "department": "LAW",
+     "entity": "city-attorney",
+     "funded_positions": 6,
+     "wages": 661250,
+     "fringe": 219883,
+     "appropriation": 926433,
+     "account_code": "A1420",
+     "notes": ""
+    }
+   ]
+  }
+ }
+}
