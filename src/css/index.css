@@ -62,3 +62,7 @@ body {
 .fadeout-element {
   animation: fadeOutElement 2s forwards;
 }
+
+#calendar-container {
+  word-wrap: break-word;
+}
